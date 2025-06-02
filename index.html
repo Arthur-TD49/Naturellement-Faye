@@ -77,7 +77,8 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        linear-gradient(135deg, var(--primary-color), #7ba428);
             height: 60vh;
             display: flex;
             align-items: center;
@@ -193,6 +194,12 @@
         .product-img {
             height: 200px;
             overflow: hidden;
+            background: linear-gradient(45deg, var(--primary-color), #7ba428);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
         }
         
         .product-img img {
@@ -242,95 +249,40 @@
             background-color: var(--light-color);
         }
         
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        
         .contact-info {
-            flex: 1;
-            min-width: 300px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
         }
         
         .contact-info h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             color: var(--primary-color);
+            font-size: 1.5rem;
         }
         
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 1rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
         
         .contact-item i {
             margin-right: 1rem;
             color: var(--secondary-color);
             font-size: 1.2rem;
+            margin-top: 0.2rem;
         }
         
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
+        .contact-item a {
+            color: var(--dark-color);
+            text-decoration: none;
         }
         
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        textarea.form-control {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-        
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #3b6347;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .success-message {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            display: none;
-        }
-        
-        .error-message {
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            display: none;
+        .contact-item a:hover {
+            color: var(--primary-color);
         }
         
         footer {
@@ -422,27 +374,38 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .contact-item i {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
         }
 
         .publications-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
 
-.publication-item {
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-}
+        .publication-item {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
 
-.publication-item video {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
+        .publication-item video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -482,7 +445,7 @@
                     <p>Nous privilégions les variétés anciennes et locales, riches en goût et en nutriments, pour vous offrir une expérience gustative authentique et vous reconnecter avec les vraies saveurs de la terre.</p>
                 </div>
                 <div class="about-image">
-                    <img src="papa.jpg" alt="Ferme Naturellement Faye">
+                    <img src="papa.jpg" alt="Ferme Naturellement Faye" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
@@ -494,7 +457,7 @@
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="fraise.jpg" alt="Fraise">
+                        <img src="fraise.jpg" alt="Fraise" onerror="this.parentElement.innerHTML='🍓'">
                     </div>
                     <div class="product-info">
                         <h3>Fraises</h3>
@@ -503,7 +466,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="radis.jpg" alt="Radis">
+                        <img src="radis.jpg" alt="Radis" onerror="this.parentElement.innerHTML='🥕'">
                     </div>
                     <div class="product-info">
                         <h3>Radis</h3>
@@ -512,7 +475,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="salades.jpg" alt="Salades">
+                        <img src="salades.jpg" alt="Salades" onerror="this.parentElement.innerHTML='🥬'">
                     </div>
                     <div class="product-info">
                         <h3>Salades</h3>
@@ -521,7 +484,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="arive.jpg" alt="Arive">
+                        <img src="arive.jpg" alt="Carottes" onerror="this.parentElement.innerHTML='🥕'">
                     </div>
                     <div class="product-info">
                         <h3>Carottes</h3>
@@ -532,26 +495,20 @@
         </div>
     </section>
     
-    <!--
-        <section class="publications" id="publications">
-    <div class="container">
-        <h2 class="section-title">Publications</h2>
-        <div class="publications-grid">
-            <div class="publication-item">
-                <br>
-                <h2>Mercredi 4 Juin 2025</h2>
-                <br>
-                <iframe width="560" height="315" src="https://youtu.be/4dF1PczjuWU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <br>
-                <br>
-                <h2>Samedi 7 Juin 2025</h2>
-                <br>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/zKUZm4kHlTA?si=Y277GFyA7Gw6LTT8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <section class="publications" id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publications-grid">
+                <div class="publication-item">
+                    <br>
+                    <h2>Nouveau site web</h2>
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/L29MpSGDOXU?si=xxsHx8yNhXCpGy4a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <br>
+                </div>
             </div>
         </div>
-    </div>
-</section>
--->
+    </section>
 
     <section class="testimonials" id="temoignages">
         <div class="container">
@@ -565,34 +522,33 @@
         </div>
     </section>
 
-<section class="contact" id="contact">
-    <div class="container">
-        <h2 class="section-title" style="text-align: center;">Contactez-nous</h2>
-        <div class="contact-container" style="display: flex; justify-content: center;">
-            <div class="contact-info" style="text-align: center; max-width: 600px;">
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <div class="contact-info">
                 <h3>Nos coordonnées</h3>
-                <div class="contact-item" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                    <i class="fas fa-map-marker-alt" style="margin-right: 15px;"></i>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <p>Naturellement Faye</p>
                         <p>Rue du clos de mailles</p>
                         <p>Faye d'Anjou, France</p>
                     </div>
                 </div>
-                <div class="contact-item" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                    <i class="fas fa-phone" style="margin-right: 15px;"></i>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
                     <div>
                         <p>+33 6 31 29 84 71</p>
                     </div>
                 </div>
-                <div class="contact-item" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                    <i class="fas fa-envelope" style="margin-right: 15px;"></i>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
                     <div>
                         <p><a href="mailto:contact@naturellementfaye.fr">contact@naturellementfaye.fr</a></p>
                     </div>
                 </div>
-                <div class="contact-item" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-                    <i class="fas fa-clock" style="margin-right: 15px;"></i>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
                     <div>
                         <p>Vente à la ferme : Samedi 9h-12h30</p>
                         <p>Vente à la ferme : Mercredi 15h30-19h</p>
@@ -600,8 +556,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer>
         <div class="container">
@@ -624,15 +579,13 @@
                     <h3>Suivez-nous</h3>
                     <div class="social-media">
                         <a href="https://www.facebook.com/NaturellementFaye/" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <!--
                         <a href="https://www.youtube.com/@NaturellementFaye" target="_blank"><i class="fab fa-youtube"></i></a>
-                        -->
                     </div>
                 </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Naturellement Faye. Tous droits réservés.</p>
-                <p>Crée en Juin 2025 par Arthur TESSIER DEBIESSE</p>
+                <p>Créé en Juin 2025 par Arthur TESSIER DEBIESSE</p>
             </div>
         </div>
     </footer>
@@ -643,41 +596,15 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
-        });
-
-        // Gestion du formulaire de contact
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const nom = formData.get('nom');
-            const email = formData.get('email');
-            const telephone = formData.get('telephone');
-            const message = formData.get('message');
-            
-            // Construction du sujet et du corps de l'email
-            const sujet = `Nouveau message de ${nom} - Naturellement Faye`;
-            const corps = `Nom: ${nom}%0D%0AEmail: ${email}%0D%0ATéléphone: ${telephone || 'Non renseigné'}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-            
-            // Création du lien mailto
-            const mailtoLink = `mailto:contact@naturellementfaye.fr?subject=${encodeURIComponent(sujet)}&body=${corps}`;
-            
-            // Ouverture du client email
-            window.location.href = mailtoLink;
-            
-            // Affichage du message de succès
-            document.getElementById('success-message').style.display = 'block';
-            document.getElementById('error-message').style.display = 'none';
-            
-            // Réinitialisation du formulaire après un délai
-            setTimeout(() => {
-                this.reset();
-                document.getElementById('success-message').style.display = 'none';
-            }, 3000);
         });
     </script>
 </body>
