@@ -826,7 +826,7 @@
             </div>
         </div>
     </section>
-    
+    <!--
     <section class="publications" id="publications">
         <div class="container">
             <h2 class="section-title">Publications</h2>
@@ -841,6 +841,200 @@
                     <br>
                     <iframe src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2FNaturellementFaye%2Fvideos%2F1053684720033681%2F&show_text=true&width=560&t=0" width="560" height="584" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                     <br>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .publications {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .publications-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .publication-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .publication-item h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        /* Conteneur responsive pour les vidéos */
+        .video-container {
+            position: relative;
+            width: 100%;
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        /* Style pour les iframes YouTube */
+        .video-container.youtube {
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
+        }
+
+        .video-container.youtube iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Style pour les iframes Facebook */
+        .video-container.facebook {
+            padding-bottom: 104.3%; /* Ratio approximatif pour Facebook */
+            height: 0;
+        }
+
+        .video-container.facebook iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Media queries pour la responsivité */
+        @media (max-width: 768px) {
+            .publications {
+                padding: 40px 0;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .publication-item {
+                padding: 20px;
+            }
+
+            .publication-item h2 {
+                font-size: 1.4rem;
+                margin: 15px 0;
+            }
+
+            .video-container {
+                margin: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .publication-item {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            .publication-item h2 {
+                font-size: 1.2rem;
+                margin: 10px 0;
+            }
+
+            .video-container {
+                margin: 10px 0;
+                border-radius: 8px;
+            }
+        }
+
+        /* Animation au scroll */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .publication-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Hover effect sur desktop */
+        @media (min-width: 769px) {
+            .publication-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                transition: all 0.3s ease;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="publications" id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publications-grid">
+                <div class="publication-item">
+                    <h2>Nouveau site web</h2>
+                    
+                    <div class="video-container youtube">
+                        <iframe src="https://www.youtube.com/embed/L29MpSGDOXU?si=xxsHx8yNhXCpGy4a" 
+                                title="YouTube video player" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <h2>Publications du mercredi 11 juin</h2>
+                    
+                    <div class="video-container facebook">
+                        <iframe src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2FNaturellementFaye%2Fvideos%2F1053684720033681%2F&show_text=true&width=560&t=0" 
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+                                allowFullScreen="true">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -922,8 +1116,11 @@
             </div>
             <div class="copyright">
                 <p>&copy; 2025 Naturellement Faye. Tous droits réservés.</p>
-                <p>Créé en Juin 2025 par Arthur TESSIER DEBIESSE</p>
-            </div>
+                <p>Créé en Juin 2025 par VINOT (Arthur TESSIER DEBIESSE)</p>
+                <br>
+                <br>
+                <p><a href="VINOT.html" class="btn">En savoir plus sur VINOT</a></p>
+        </div>
         </div>
     </footer>
 
