@@ -203,7 +203,6 @@
             padding: 0.5rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border: 1px solid rgba(106, 176, 76, 0.1);
-            display: none;
         }
 
         .language-toggle {
@@ -377,6 +376,42 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: -1px;
+            z-index: 1001;
+        }
+
+        /* HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+            width: 30px;
+            height: 24px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-green);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         .nav-links {
@@ -445,10 +480,11 @@
             max-width: 800px;
             z-index: 2;
             position: relative;
+            padding: 0 1rem;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 5rem);
+            font-size: clamp(2.5rem, 7vw, 5rem);
             font-weight: 900;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 30px rgba(0,0,0,0.3);
@@ -456,7 +492,7 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             margin-bottom: 3rem;
             opacity: 0.95;
             max-width: 600px;
@@ -473,7 +509,7 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             border: 2px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(10px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -545,18 +581,265 @@
             50% { transform: translateY(-20px); }
         }
 
+        /* SECTIONS */
+        .section {
+            padding: 8rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-light);
+        }
+
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-card-content {
+            padding: 2rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .product-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-info-inner {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-map {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--text-dark), #1a1a1a);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--light-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .two-col-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section {
+                padding: 5rem 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
             .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 280px;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                gap: 2rem;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                align-items: flex-start;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+                border-radius: 15px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: rgba(106, 176, 76, 0.1);
+                transform: translateX(5px);
+            }
+
+            .nav-links a::after {
                 display: none;
             }
 
             .language-selector {
-                top: 80px;
+                top: 90px;
                 right: 1rem;
             }
 
-            .hero h1 {
-                font-size: 3rem;
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .section {
+                padding: 4rem 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
             }
 
             .popup-content {
@@ -566,11 +849,38 @@
             .popup-title {
                 font-size: 1.5rem;
             }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .hero-cta {
+                padding: 1rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .popup-icon {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                width: 100%;
+            }
         }
 
         .scroll-reveal {
@@ -614,9 +924,7 @@
             <button class="popup-close" id="popupClose">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="popup-icon">
-                🌱
-            </div>
+            <div class="popup-icon">🌱</div>
             <h2 class="popup-title" data-translate="popup_title">Bienvenue chez nous</h2>
             <p class="popup-text" data-translate="popup_text">Découvrez nos délicieux légumes biologiques cultivés avec passion. Explorez nos produits.</p>
             <div class="popup-buttons">
@@ -626,35 +934,20 @@
         </div>
     </div>
 
-    <!-- LANGUAGE SELECTOR -->
-    <div class="language-selector">
-        <button class="language-toggle" id="languageToggle">
-            <span class="language-flag" id="currentFlag">🇫🇷</span>
-            <span id="currentLang">Français</span>
-            <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="language-dropdown" id="languageDropdown">
-            <div class="language-option active" data-lang="fr" data-flag="🇫🇷">
-                <span class="language-flag">🇫🇷</span>
-                <span>Français</span>
-            </div>
-            <div class="language-option" data-lang="en" data-flag="🇬🇧">
-                <span class="language-flag">🇬🇧</span>
-                <span>English</span>
-            </div>
-            <div class="language-option" data-lang="es" data-flag="🇪🇸">
-                <span class="language-flag">🇪🇸</span>
-                <span>Español</span>
-            </div>
-        </div>
-    </div>
-
     <!-- HEADER -->
     <header id="header">
         <div class="nav-container">
             <nav>
                 <div class="logo">Naturellement Faye</div>
-                <ul class="nav-links">
+                
+                <!-- HAMBURGER MENU -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#accueil" data-translate="nav_home">Accueil</a></li>
                     <li><a href="#a-propos" data-translate="nav_about">À propos</a></li>
                     <li><a href="#produits" data-translate="nav_products">Nos légumes</a></li>
@@ -678,16 +971,16 @@
         </div>
     </section>
 
-    <!-- SECTIONS SUPPLÉMENTAIRES -->
-    <section class="section about" id="a-propos" style="background: linear-gradient(135deg, #fdfcfb 0%, #e2f0d9 100%); padding: 8rem 0;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
-            <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: 3rem; font-weight: 800; color: var(--text-dark); margin-bottom: 1rem;">Notre Histoire</h2>
-                <p style="font-size: 1.2rem; color: var(--text-light);">Une passion pour l'agriculture biologique</p>
+    <!-- ABOUT SECTION -->
+    <section class="section" id="a-propos" style="background: linear-gradient(135deg, #fdfcfb 0%, #e2f0d9 100%);">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Histoire</h2>
+                <p class="section-subtitle">Une passion pour l'agriculture biologique</p>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div class="two-col-grid">
                 <div>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">Bienvenue chez Naturellement Faye, nous somme Anne-Laure et Mathieu paysans passionné par la culture de légumes biologiques.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">Bienvenue chez Naturellement Faye, nous sommes Anne-Laure et Mathieu, paysans passionnés par la culture de légumes biologiques.</p>
                     <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">Notre philosophie est simple : cultiver en harmonie avec la nature, sans produits chimiques, en favorisant la biodiversité.</p>
                     <p style="font-size: 1.1rem; line-height: 1.8;">Nous privilégions les variétés anciennes et locales pour vous offrir une expérience gustative authentique.</p>
                 </div>
@@ -698,49 +991,51 @@
         </div>
     </section>
 
-    <section class="section products" id="produits" style="background: var(--soft-white); padding: 8rem 0;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
-            <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: 3rem; font-weight: 800; color: var(--text-dark); margin-bottom: 1rem;">Nos Légumes</h2>
-                <p style="font-size: 1.2rem; color: var(--text-light);">Des légumes cultivés avec amour</p>
+    <!-- PRODUCTS SECTION -->
+    <section class="section" id="produits" style="background: var(--soft-white);">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Légumes</h2>
+                <p class="section-subtitle">Des légumes cultivés avec amour</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div style="background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
-                    <img src="IMG_0752.jpg" alt="Courges" style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 2rem;">
-                        <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem;">Les courges</h3>
-                        <p style="color: var(--text-light); line-height: 1.6;">Une diversitée de variétées pour plus de saveurs.</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="IMG_0752.jpg" alt="Courges">
+                    <div class="product-card-content">
+                        <h3>Les courges</h3>
+                        <p>Une diversité de variétés pour plus de saveurs.</p>
                     </div>
                 </div>
-                <div style="background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img src="IMG_1469.JPG" alt="Betteraves" style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 2rem;">
-                        <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem;">Les betteraves</h3>
-                        <p style="color: var(--text-light); line-height: 1.6;">Récoltés au petit matin pour plus de fraîcheur.</p>
+                <div class="product-card">
+                    <img src="IMG_1469.JPG" alt="Betteraves">
+                    <div class="product-card-content">
+                        <h3>Les betteraves</h3>
+                        <p>Récoltées au petit matin pour plus de fraîcheur.</p>
                     </div>
                 </div>
-                <div style="background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img src="IMG_4499.jpeg" alt="Blettes, cardes, poirées..." style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 2rem;">
-                        <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem;">Les blettes, cardes, poirées...</h3>
-                        <p style="color: var(--text-light); line-height: 1.6;">Deux légumes à la fois, des cotes croquantes et des feuilles savoureuses.</p>
+                <div class="product-card">
+                    <img src="IMG_4499.jpeg" alt="Blettes">
+                    <div class="product-card-content">
+                        <h3>Les blettes, cardes, poirées...</h3>
+                        <p>Deux légumes à la fois, des côtes croquantes et des feuilles savoureuses.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section contact" id="contact" style="background: var(--soft-white); padding: 8rem 0;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
-            <div style="text-align: center; margin-bottom: 4rem;">
-                <h2 style="font-size: 3rem; font-weight: 800; color: var(--text-dark); margin-bottom: 1rem;">Nous Rencontrer</h2>
-                <p style="font-size: 1.2rem; color: var(--text-light);">Venez découvrir notre ferme</p>
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact" style="background: var(--soft-white);">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Nous Rencontrer</h2>
+                <p class="section-subtitle">Venez découvrir notre ferme</p>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+            <div class="two-col-grid">
                 <div>
-                    <div style="background: white; padding: 2rem; border-radius: 20px; margin-bottom: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <div style="display: flex; align-items: start; gap: 1rem;">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-green), var(--light-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                    <div class="contact-info">
+                        <div class="contact-info-inner">
+                            <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
@@ -749,9 +1044,9 @@
                             </div>
                         </div>
                     </div>
-                    <div style="background: white; padding: 2rem; border-radius: 20px; margin-bottom: 1.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <div style="display: flex; align-items: start; gap: 1rem;">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-green), var(--light-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                    <div class="contact-info">
+                        <div class="contact-info-inner">
+                            <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
@@ -760,9 +1055,9 @@
                             </div>
                         </div>
                     </div>
-                    <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <div style="display: flex; align-items: start; gap: 1rem;">
-                            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-green), var(--light-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                    <div class="contact-info">
+                        <div class="contact-info-inner">
+                            <div class="contact-icon">
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div>
@@ -772,44 +1067,45 @@
                         </div>
                     </div>
                 </div>
-                <div style="border-radius: 25px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                    <img src="IMG_3313.JPG" alt="Carte" style="width: 100%; height: 100%; object-fit: cover; min-height: 400px;">
+                <div class="contact-map">
+                    <img src="IMG_3313.JPG" alt="Carte">
                 </div>
             </div>
         </div>
     </section>
 
-    <footer style="background: linear-gradient(135deg, var(--text-dark), #1a1a1a); color: white; padding: 4rem 0 2rem;">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
-            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem;">
+    <!-- FOOTER -->
+    <footer>
+        <div class="section-container">
+            <div class="footer-grid">
                 <div>
-                    <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary-green), var(--light-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Naturellement Faye</h3>
+                    <h3 class="footer-logo">Naturellement Faye</h3>
                     <p style="color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1rem;">Une ferme familiale engagée dans l'agriculture biologique et locale.</p>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                        <a href="https://www.facebook.com/NaturellementFaye/" target="_blank" style="width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease;">
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/NaturellementFaye/" target="_blank" class="social-link">
                             <i class="fab fa-facebook"></i>
                         </a>
                     </div>
                 </div>
                 <div>
                     <h4 style="margin-bottom: 1rem; font-weight: 600;">Navigation</h4>
-                    <ul style="list-style: none;">
-                        <li><a href="#accueil" style="color: rgba(255,255,255,0.7); text-decoration: none; display: block; padding: 0.3rem 0;">Accueil</a></li>
-                        <li><a href="#a-propos" style="color: rgba(255,255,255,0.7); text-decoration: none; display: block; padding: 0.3rem 0;">À propos</a></li>
-                        <li><a href="#produits" style="color: rgba(255,255,255,0.7); text-decoration: none; display: block; padding: 0.3rem 0;">Nos légumes</a></li>
-                        <li><a href="#contact" style="color: rgba(255,255,255,0.7); text-decoration: none; display: block; padding: 0.3rem 0;">Contact</a></li>
+                    <ul class="footer-links">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#a-propos">À propos</a></li>
+                        <li><a href="#produits">Nos légumes</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 style="margin-bottom: 1rem; font-weight: 600;">Informations</h4>
-                    <ul style="list-style: none;">
-                        <li><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none; display: block; padding: 0.3rem 0;">Agriculture bio</a></li>
-                        <li><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none; display: block; padding: 0.3rem 0;">Nos engagements</a></li>
-                        <li><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none; display: block; padding: 0.3rem 0;">Vente directe</a></li>
+                    <ul class="footer-links">
+                        <li><a href="#">Agriculture bio</a></li>
+                        <li><a href="#">Nos engagements</a></li>
+                        <li><a href="#">Vente directe</a></li>
                     </ul>
                 </div>
             </div>
-            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.5);">
+            <div class="footer-bottom">
                 <p>© 2025 Naturellement Faye. Tous droits réservés.</p>
                 <p style="margin-top: 0.5rem;">Site créé avec passion par Arthur TESSIER DEBIESSE</p>
             </div>
@@ -862,6 +1158,37 @@
 
         let currentLanguage = 'fr';
 
+        // HAMBURGER MENU
+        function initHamburger() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu when clicking on a link
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
         // POPUP MANAGEMENT
         function initPopup() {
             const popupOverlay = document.getElementById('popupOverlay');
@@ -869,12 +1196,10 @@
             const popupSecondary = document.getElementById('popupSecondary');
             const popupPrimary = document.getElementById('popupPrimary');
 
-            // Show popup after loader finishes
             setTimeout(() => {
                 popupOverlay.classList.add('active');
             }, 2300);
 
-            // Close popup functions
             function closePopup() {
                 popupOverlay.classList.remove('active');
             }
@@ -882,7 +1207,6 @@
             popupClose.addEventListener('click', closePopup);
             popupSecondary.addEventListener('click', closePopup);
             
-            // Primary button scrolls to products
             popupPrimary.addEventListener('click', () => {
                 closePopup();
                 setTimeout(() => {
@@ -893,14 +1217,12 @@
                 }, 400);
             });
 
-            // Close on overlay click
             popupOverlay.addEventListener('click', (e) => {
                 if (e.target === popupOverlay) {
                     closePopup();
                 }
             });
 
-            // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     closePopup();
@@ -1001,6 +1323,7 @@
 
         // INITIALIZE
         document.addEventListener('DOMContentLoaded', function() {
+            initHamburger();
             initLanguageSelector();
             initPopup();
         });
